@@ -1,9 +1,9 @@
 const { Router } = require("express");
-const axios = require("axios");
-
 const router = Router();
 
-router.get("/", async (req, res) => {
+const axios = require("axios");
+
+router.get("/:movie", async (req, res) => {
    try {
       const config = {
          headers: {
@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
          },
       };
       const axiosRes = await axios.get(
-         "https://api.themoviedb.org/3/search/movie?language=en-US&query=The%20Avengers&page=1&include_adult=false",
+         `https://api.themoviedb.org/3/search/movie?language=en-US&query=${req.params.movie}&page=1&include_adult=false`,
          config
       );
 

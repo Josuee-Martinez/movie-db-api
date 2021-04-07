@@ -6,4 +6,4 @@ const app = express();
 
 app.use("/api/search", require("./controllers/searchController"));
 
-app.listen(3000, console.log("running"));
+app.listen(5000, console.log("running"));
